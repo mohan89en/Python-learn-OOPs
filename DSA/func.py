@@ -19,3 +19,8 @@ def my_fun(**kwargs):
         print("%s ==%s" % (key,value))
         
 my_fun(animal = "dog",bird = "hen",plant = "tulasi")
+
+def my_function(**kid):
+  print("His last name is " + kid["lname"])
+
+my_function(fname = "Tobias", lname = "Refsnes")
