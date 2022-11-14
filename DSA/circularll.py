@@ -1,0 +1,36 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.previous = None
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def traverse(self, starting_point=None):
+        if starting_point is None:
+            starting_point = self.head
+        node = starting_point
+        while node is not None and (node.next != starting_point):
+            yield node
+            node = node.next
+        yield node
+
+    def print_list(self, starting_point=None):
+        nodes = []
+        for node in self.traverse(starting_point):
+            nodes.append(str(node))
+        print(" -> ".join(nodes))
+
+circular = CircularLinkedList()
+a = Node("a")
+b = Node("b")
+c = Node("c")
+d = Node("d")
+a.next = b
+b.next = c
+c.next = d
+d.next = a
+circular.head = a
+circular.print_list()
+CircularLinkedList.print_list()
